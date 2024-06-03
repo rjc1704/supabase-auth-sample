@@ -1,8 +1,5 @@
-# React + Vite
+# 20240603 강의 코드 공유 - 아래 내용 필독!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### .env.local 파일을 만들고 VITE_SUPABASE_URL 과 VITE_SUPABASE_ANON_KEY 를 입력한 뒤 yarn dev 하세요.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### src/api/auth.js 에서 signInWithEmail 함수의 TODO 내용을 확인하세요.
