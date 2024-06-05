@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { getId } from "../api/auth";
 import { createPost } from "../api/posts";
 import { uploadFile } from "../api/storage";
 import { addPost } from "../redux/slices/postSlice";
@@ -33,13 +34,13 @@ export default function PostForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    const user_id = await getId();
     if (postImgFile) {
       // 사용자가 이미지 선택 했을 때
       uploadFile(postImgFile).then((img_url) => {
         createPost({
           content: postContent,
-          user_id: "13582d46-b2bd-41bd-9812-cfb0ede296f4",
+          user_id,
           img_url,
         }).then(([newPost]) => {
           dispatch(addPost(newPost));
@@ -51,7 +52,7 @@ export default function PostForm() {
     // 이미지 선택 안했을 때
     createPost({
       content: postContent,
-      user_id: "13582d46-b2bd-41bd-9812-cfb0ede296f4",
+      user_id,
     }).then(([newPost]) => {
       dispatch(addPost(newPost));
       resetStates();

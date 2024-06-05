@@ -1,7 +1,8 @@
 import { supabase } from "../supabase/supabaseClient";
 
 export const getPosts = async () => {
-  const { data: posts, error } = await supabase.from("posts").select();
+  const { data: posts, error } = await supabase.from("posts").select("*");
+
   console.log("posts:", posts);
   console.log("error:", error);
   if (error) {
